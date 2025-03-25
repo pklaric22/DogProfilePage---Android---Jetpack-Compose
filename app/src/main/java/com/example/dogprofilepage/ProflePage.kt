@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -47,36 +48,42 @@ fun ProfilePage() {
         Text(text = "Belgijski ovcar")
         Text(text = "Belgija")
 
-        Row (
+        Row(
             horizontalArrangement = Arrangement.SpaceEvenly,
             modifier = Modifier.fillMaxWidth().padding(16.dp)
-        ){
-            Column (
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                Text(text = "150", fontWeight = FontWeight.Bold)
-                Text(text = "Pratitelja")
+        ) {
+            ProfileStats("150", "Pratitelja")
+            ProfileStats("100", "Prati")
+            ProfileStats("30", "Objava")
+
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
+        ) {
+            Button(onClick = { /*TODO*/ } ){
+                Text(text = "Prati korisnika")
             }
 
-            Column (
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                Text(text = "100", fontWeight = FontWeight.Bold)
-                Text(text = "Prati")
+            Button(onClick = {/*TODO*/}) {
+                Text(text = "Posalji poruku")
             }
 
-            Column (
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                Text(text = "15", fontWeight = FontWeight.Bold)
-                Text(text = "Objava")
-            }
         }
 
     }
 }
 
-
+@Composable
+fun ProfileStats(count: String, title:String){
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(text = count, fontWeight = FontWeight.Bold)
+        Text(text = title)
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
